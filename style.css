@@ -1,0 +1,570 @@
+/* Global Styles & Animations */
+body {
+  margin: 0;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  background: radial-gradient(circle at 50% 40%, #23243a 0%, #181928 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 1s;
+}
+.hero-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  animation: fadeIn 1.2s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+.neon-glow {
+  /* ...existing code... */
+  animation: neonPulse 2.5s infinite alternate;
+}
+@keyframes neonPulse {
+  from { box-shadow: 0 0 80px 10px #00ffb3, 0 0 0 8px #23243a inset; }
+  to { box-shadow: 0 0 120px 20px #00ffb3, 0 0 0 12px #23243a inset; }
+}
+.sticky-note {
+  /* ...existing code... */
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.sticky-note:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 8px 32px #fffd8c99;
+}
+.code-window {
+  /* ...existing code... */
+  transition: box-shadow 0.4s, transform 0.4s;
+}
+.code-window:hover {
+  box-shadow: 0 8px 32px #b366ff99;
+  transform: scale(1.04) translateY(-6px);
+}
+.coffee-area {
+  /* ...existing code... */
+  animation: coffeeBounce 2s infinite alternate;
+}
+@keyframes coffeeBounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+.animated-btn {
+  /* ...existing code... */
+  animation: btnAppear 1.2s;
+}
+@keyframes btnAppear {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Add more interactive styles for other sections below */
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 64px;
+  background: #10121a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: 0 2px 12px #000a;
+  padding: 0 60px;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+}
+.code-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  filter: drop-shadow(0 0 8px #00ffb3);
+}
+.header-name {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+}
+.header-nav {
+  display: flex;
+  gap: 48px;
+}
+.nav-link {
+  position: relative;
+  color: #e2e2e2;
+  font-size: 1.25rem;
+  text-decoration: none;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  transition: color 0.3s;
+  padding: 2px 0;
+}
+.nav-link:hover {
+  color: #00ffb3;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #00ffb3 0%, #b366ff 100%);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.35s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+.tools-slider-section {
+  width: 100vw;
+  background: #181928;
+  padding: 24px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64px;
+  margin-bottom: 0;
+  overflow: hidden;
+  box-shadow: 0 2px 12px #00ffb355;
+}
+.tools-slider-wrapper {
+  width: 100vw;
+  max-width: 1600px;
+  overflow: hidden;
+  position: relative;
+}
+.tools-slider {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  animation: sliderLoop 32s linear infinite;
+}
+@keyframes sliderLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 110px;
+  margin: 0 12px;
+  color: #e2e2e2;
+  font-size: 1.1rem;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  opacity: 0.85;
+  transition: transform 0.3s, opacity 0.3s;
+  background: none;
+}
+.tool img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 0 8px #00ffb3aa);
+  transition: filter 0.3s, transform 0.3s;
+  background: none;
+}
+.tool:hover {
+  transform: scale(1.15) translateY(-6px);
+  opacity: 1;
+}
+.tool:hover img {
+  filter: drop-shadow(0 0 16px #b366ffcc);
+  transform: scale(1.2);
+}
+body {
+  background: radial-gradient(circle at 50% 40%, #23243a 0%, #181928 100%);
+}
+.hero-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  animation: fadeIn 1.2s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+.neon-glow {
+  /* ...existing code... */
+  animation: neonPulse 2.5s infinite alternate;
+}
+@keyframes neonPulse {
+  from { box-shadow: 0 0 80px 10px #00ffb3, 0 0 0 8px #23243a inset; }
+  to { box-shadow: 0 0 120px 20px #00ffb3, 0 0 0 12px #23243a inset; }
+}
+.sticky-note {
+  /* ...existing code... */
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.sticky-note:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 8px 32px #fffd8c99;
+}
+.code-window {
+  /* ...existing code... */
+  transition: box-shadow 0.4s, transform 0.4s;
+}
+.code-window:hover {
+  box-shadow: 0 8px 32px #b366ff99;
+  transform: scale(1.04) translateY(-6px);
+}
+.coffee-area {
+  /* ...existing code... */
+  animation: coffeeBounce 2s infinite alternate;
+}
+@keyframes coffeeBounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+.animated-btn {
+  /* ...existing code... */
+  animation: btnAppear 1.2s;
+}
+@keyframes btnAppear {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Add more interactive styles for other sections below */
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 64px;
+  background: #10121a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: 0 2px 12px #000a;
+  padding: 0 60px;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+}
+.code-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  filter: drop-shadow(0 0 8px #00ffb3);
+}
+.header-name {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+}
+.header-nav {
+  display: flex;
+  gap: 48px;
+}
+.nav-link {
+  position: relative;
+  color: #e2e2e2;
+  font-size: 1.25rem;
+  text-decoration: none;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  transition: color 0.3s;
+  padding: 2px 0;
+}
+.nav-link:hover {
+  color: #00ffb3;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #00ffb3 0%, #b366ff 100%);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.35s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+.tools-slider-section {
+  width: 100vw;
+  background: #181928;
+  padding: 24px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64px;
+  margin-bottom: 0;
+  overflow: hidden;
+  box-shadow: 0 2px 12px #00ffb355;
+}
+.tools-slider-wrapper {
+  width: 100vw;
+  max-width: 1600px;
+  overflow: hidden;
+  position: relative;
+}
+.tools-slider {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  animation: sliderLoop 32s linear infinite;
+}
+@keyframes sliderLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 110px;
+  margin: 0 12px;
+  color: #e2e2e2;
+  font-size: 1.1rem;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  opacity: 0.85;
+  transition: transform 0.3s, opacity 0.3s;
+  background: none;
+}
+.tool img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 0 8px #00ffb3aa);
+  transition: filter 0.3s, transform 0.3s;
+  background: none;
+}
+.tool:hover {
+  transform: scale(1.15) translateY(-6px);
+  opacity: 1;
+}
+.tool:hover img {
+  filter: drop-shadow(0 0 16px #b366ffcc);
+  transform: scale(1.2);
+}
+.about-section {
+  width: 100vw;
+  max-width: 900px;
+  margin: 120px auto 0 auto;
+  text-align: center;
+  color: #e2e2e2;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  background: #181928;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px #00ffb355;
+  padding: 48px 32px 32px 32px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s, transform 1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.about-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+.about-title-green {
+  color: #00ffb3;
+  text-decoration: underline 4px #00ffb3;
+}
+.about-desc {
+  font-size: 1.3rem;
+  margin-bottom: 32px;
+  color: #b3b3b3;
+}
+.github-contrib-card {
+  background: #23243a;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #00ffb355;
+  padding: 32px 24px 24px 24px;
+  margin: 0 auto 32px auto;
+  max-width: 700px;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.github-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 12px;
+  width: 100%;
+  justify-content: flex-start;
+}
+.github-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid #00ffb3;
+  box-shadow: 0 0 8px #00ffb3;
+}
+.github-username {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+.github-legend {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+  color: #b3b3b3;
+}
+.github-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-block;
+  background: #333;
+}
+.github-dot-less {
+  background: #333;
+}
+.github-dot-more {
+  background: #00ffb3;
+}
+.github-graph {
+  margin: 18px 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #181928;
+  border-radius: 12px;
+  padding: 18px 0;
+  box-shadow: 0 2px 12px #00ffb355;
+  width: 100%;
+  align-items: center;
+}
+.github-row {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+.github-cell {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: #333;
+  display: inline-block;
+}
+.github-cell-green {
+  background: #00ffb3;
+}
+.github-stats {
+  text-align: center;
+  margin-top: 18px;
+  width: 100%;
+}
+.about-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #fff;
+}
+.about-role {
+  font-size: 1.2rem;
+  color: #00ffb3;
+  margin-bottom: 18px;
+}
+.about-counts {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 18px;
+}
+.about-count {
+  background: #23243a;
+  border-radius: 10px;
+  padding: 18px 28px;
+  box-shadow: 0 2px 12px #00ffb355;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.about-count.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.count {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #00ffb3;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+.count-label {
+  font-size: 1rem;
+  color: #b3b3b3;
+}
+.fork-btn {
+  background: #23243a;
+  color: #e2e2e2;
+  font-size: 1.1rem;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  border-radius: 8px;
+  border: none;
+  padding: 12px 32px;
+  margin-top: 12px;
+  box-shadow: 0 2px 12px #00ffb355;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: graphBtnUp 1s 0.8s forwards;
+}
+@keyframes graphBtnUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+.fork-btn:hover {
+  background: #00ffb3;
+  color: #23243a;
+  transform: scale(1.08);
+}
